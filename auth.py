@@ -12,7 +12,10 @@ from pathlib import Path
 
 from playwright.sync_api import sync_playwright, TimeoutError as PWTimeout
 
-from monitor.config import LOGIN_URL, PORTAL_URL, SESSION_FILE, EMAIL, PASSWORD
+try:
+    from monitor.config import LOGIN_URL, PORTAL_URL, SESSION_FILE, EMAIL, PASSWORD
+except ModuleNotFoundError:
+    from config import LOGIN_URL, PORTAL_URL, SESSION_FILE, EMAIL, PASSWORD
 
 
 def login_interactive() -> None:
@@ -24,12 +27,12 @@ def login_interactive() -> None:
     Then save the session to SESSION_FILE.
     """
     print("=" * 60)
-    print("פותח דפדפן לכניסה ידנית לאתר ער\"ן...")
-    print("  1. סמן 'כניסה ללא שלוחה'")
-    print("  2. סמן 'אני לא רובוט' (reCAPTCHA)")
-    print("  3. לחץ התחבר – תקבל קוד בSMS/מייל")
-    print("  4. הזן את הקוד בדפדפן")
-    print("  5. לאחר שהגעת לדף מרכז השיחות, חזור לכאן ולחץ Enter")
+    print("Opening browser for manual ERAN portal login...")
+    print("  1. Check 'Login without extension'")
+    print("  2. Check 'I am not a robot' (reCAPTCHA)")
+    print("  3. Click Login — you will receive a code by SMS/email")
+    print("  4. Enter the code in the browser")
+    print("  5. Once you reach the call-centre page, return here and press Enter")
     print("=" * 60)
 
     with sync_playwright() as pw:
@@ -51,18 +54,18 @@ def login_interactive() -> None:
             except Exception:
                 pass
 
-        print("\nהשלם את הכניסה בדפדפן, ואז לחץ Enter כאן...")
+        print("\nComplete login in the browser, then press Enter here...")
         input()
 
         # Verify we landed on the call-centre page
         current = page.url
         if "CallCenter" not in current and "default" not in current:
-            print(f"[אזהרה] כתובת הדף הנוכחית: {current}")
-            print("ייתכן שהכניסה לא הושלמה. ממשיך לשמור קוקיז בכל מקרה.")
+            print(f"[Warning] Current page URL: {current}")
+            print("Login may not have completed. Saving cookies anyway.")
 
         # Save storage state (cookies + localStorage)
         context.storage_state(path=SESSION_FILE)
-        print(f"[✓] הסשן נשמר ב: {SESSION_FILE}")
+        print(f"[✓] Session saved to: {SESSION_FILE}")
 
         browser.close()
 
