@@ -17,7 +17,7 @@ log = logging.getLogger(__name__)
 
 # Map of our field names → possible Hebrew label substrings (right-to-left friendly)
 _FIELD_PATTERNS = {
-    "calls":     [r"שיחות[^\d]*(\d+)", r"(\d+)[^\d]*שיחות"],
+    "calls":     [r"בשיחה[^\d]*(\d+)", r"(\d+)[^\d]*בשיחה"],
     "waiting":   [r"בהמתנה[^\d]*(\d+)", r"ממתינ[^\d]*(\d+)", r"(\d+)[^\d]*בהמתנה"],
     "connected": [r"מחוברים[^\d]*(\d+)", r"מחוברות[^\d]*(\d+)", r"(\d+)[^\d]*מחובר"],
     "on_break":  [r"בהפסקה[^\d]*(\d+)", r"הפסקה[^\d]*(\d+)", r"(\d+)[^\d]*בהפסקה"],
@@ -69,6 +69,10 @@ def scrape_stats(page) -> dict:
     data = {}
     for field, patterns in _FIELD_PATTERNS.items():
         data[field] = _extract_int(raw_text, patterns)
+
+    if all(v is None for v in data.values()):
+        print("[!] Warning: all stats are None — page text may not match expected patterns.")
+        log.debug("Raw page text (first 500 chars): %s", raw_text[:500])
 
     log.info("Scraped: %s", data)
     return data
