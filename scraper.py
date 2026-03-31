@@ -58,7 +58,22 @@ def scrape_stats(page) -> dict:
         except Exception:
             pass
 
-    # Strategy 2: fall back to full page text
+    # Strategy 2: search all frames (stats are often inside an iframe)
+    if not raw_text:
+        try:
+            for frame in page.frames:
+                try:
+                    t = frame.inner_text("body")
+                    if any(kw in t for kw in ["בשיחה", "מחובר", "בהפסקה", "ממתינ"]):
+                        raw_text = t
+                        log.debug("Found stats in frame: %s", frame.url)
+                        break
+                except Exception:
+                    pass
+        except Exception as exc:
+            log.warning("Could not iterate frames: %s", exc)
+
+    # Strategy 3: fall back to main page body text
     if not raw_text:
         try:
             raw_text = page.inner_text("body")

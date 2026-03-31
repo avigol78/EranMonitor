@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 /home/avi/Projects/EranMonitor/main.py collect --help)",
+      "Bash(python3 /home/avi/Projects/EranMonitor/main.py watch --help)"
+    ]
+  }
+}

@@ -1,0 +1,636 @@
+=== MAIN FRAME (https://portal.eran.org.il/CallCenter/default.aspx) ===
+אבי גולדמן
+רענן/י
+שיחה יזומה
+צ'אט
+עידכון פרטים
+יציאה
+  בית היסטוריה הודעות מידע מקצועי משמרות תמיכה טכנית מידע כל-זכות אירועים/ימי עיון/הדרכות
+
+
+	 						
+
+
+action: ccid:-1 check:none ccidval:-1
+	
+ERP1
+ERP2
+	
+HE
+EN
+נגישות
+
+=== FRAME 1 (about:blank) ===
+
+
+=== FRAME 2 (https://portal.eran.org.il/CallCenter/QueueStatus.aspx) ===
+שלוחה:
+none
+בשיחה:
+2
+בהמתנה:
+8
+פנויים/ות:
+0
+בהפסקה:
+10
+מחוברים/ות:
+13
+
+=== FRAME 3 (https://portal.eran.org.il/iframe.aspx?control=modulesMessanger/MessangerList&bg=F3F2EF) ===
+
+
+
+
+
+
+
+
+
+
+
+//<![CDATA[
+var theForm = document.forms['Form1'];
+if (!theForm) {
+    theForm = document.Form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+
+
+
+
+
+
+
+
+
+
+
+	
+	
+
+
+    
+    
+    
+    
+
+
+
+
+
+    
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$ToolkitScriptManager1', 'Form1', ['tctl00$HolderBody$ctl00$updPanel','HolderBody_ctl00_updPanel'], [], [], 90, 'ctl00');
+//]]>
+
+
+
+
+
+
+
+
+            
+            
+                
+                                
+                                
+                                    
+                                        
+                                             
+
+
+html, body { background-color:#ffffff;"}
+
+ 
+
+    .massnImg0
+{
+      border: 2px solid #D1D1D1;
+      border-radius: 34px 34px;
+      width: 34px;
+      height: 34px;
+}
+.massnImg1
+{
+      border: 2px solid #09D261;
+      border-radius: 34px 34px;
+      width: 34px;
+      height: 34px;
+}
+
+
+
+	
+		
+        
+            
+                
+                    אונליין
+                    
+                    
+                
+            
+                   
+                   
+           
+        
+
+        
+	
+	
+		
+        
+	
+	
+		
+            
+			
+                     loadingusers
+                             
+                            
+                            
+                    
+                
+		
+        
+	
+
+
+
+
+function chat(CID)
+{
+
+<!--    //
+
+    function handleError() {
+        return true;
+    }
+
+    window.onerror = handleError;
+//-->
+
+
+    popUPwinNo('modulesMessanger/chatMain.aspx?FromCID=' + CID + '&ToCID=317543',600,350,'chat')
+
+}
+
+
+function openChatDiv(ToCID)
+{
+
+var url = "/modulesMessanger/chatMain.aspx?FromCID=317543&ToCID=" + ToCID  ;
+parent.window.document.getElementById("iframeChat").src = "";
+parent.window.document.getElementById("iframeChat").src = url;
+
+//parent.window.document.getElementById('topbar').innerHTML = "ofer"
+//parent.window.staticbar();
+//parent.window.document.getElementById('topbar').innerHTML = "ofer"
+parent.window.staticbar();
+}
+
+
+
+
+                                            
+                                        
+                                    
+                                 
+                
+ 
+            
+            
+        
+        
+        
+
+
+
+    
+
+
+
+
+
+
+
+
+
+    
+
+
+//<![CDATA[
+(function() {var fn = function() {$get('ToolkitScriptManager1_HiddenField').value = '';Sys.Application.remove_init(fn);};Sys.Application.add_init(fn);})();Sys.Application.add_init(function() {
+    $create(Sys.UI._Timer, {"enabled":true,"interval":60000,"uniqueID":"ctl00$HolderBody$ctl00$Timer1"}, null, null, $get("HolderBody_ctl00_Timer1"));
+});
+//]]>
+
+
+
+
+
+
+=== FRAME 4 (https://portal.eran.org.il/iframe.aspx?control=modules/ClientsFavorite) ===
+
+
+
+
+
+
+
+
+
+
+
+//<![CDATA[
+var theForm = document.forms['Form1'];
+if (!theForm) {
+    theForm = document.Form1;
+}
+function __doPostBack(eventTarget, eventArgument) {
+    if (!theForm.onsubmit || (theForm.onsubmit() != false)) {
+        theForm.__EVENTTARGET.value = eventTarget;
+        theForm.__EVENTARGUMENT.value = eventArgument;
+        theForm.submit();
+    }
+}
+//]]>
+
+
+
+
+
+
+
+
+
+
+	
+
+
+    
+    
+    
+    
+
+
+
+
+
+    
+//<![CDATA[
+Sys.WebForms.PageRequestManager._initialize('ctl00$ToolkitScriptManager1', 'Form1', [], [], [], 90, 'ctl00');
+//]]>
+
+
+
+
+
+
+
+
+            
+            
+                
+                                
+                                
+                                    
+                                        
+                                             
+
+
+html, body { background-color:#ffffff;"}
+
+ 
+
+
+    #FavoMenu .divimg {float:right;
+    }
+    #FavoMenu .divlink {width:95%;}
+
+
+
+
+
+
+
+
+
+
+
+מועדפים
+    
+        
+            
+          
+            
+           
+                
+                
+            
+         
+    
+
+        
+
+
+                                            
+                                        
+                                    
+                                 
+                
+ 
+            
+            
+        
+        
+        
+
+
+
+    
+
+
+
+
+
+
+
+
+
+    
+
+
+//<![CDATA[
+(function() {var fn = function() {$get('ToolkitScriptManager1_HiddenField').value = '';Sys.Application.remove_init(fn);};Sys.Application.add_init(fn);})();//]]>
+
+
+
+
+
+
+=== FRAME 5 (https://portal.eran.org.il/callcenter/terminal.aspx?control=/modulesMessages/MessagesListNewDesign) ===
+ 
+All departments
+כללי
+-חברה כללי
+--עובדים כללי
+--סניפים
+---ראשון לציון
+---כפר סבא
+---תל אביב
+---חיפה
+---באר שבע
+---חדרה
+---ירושלים
+---סניף בערבית
+---השרון
+---אינטרנט
+---כרמיאל
+---תל חי
+---עמק יזרעאל
+---קרית ביאליק
+---PALO ALTO
+----חיפה קהילה
+---BOSTON
+---TORONTO
+---Eranim in America
+----אינטרנט אחמ"שים
+---אמהרית
+---רוסית
+---NEW JERSEY
+---Australia
+---מוקד חוסן
+---ער"ן פלוס
+---כפר סבא לילות
+---תל אביב לילות
+-לקוחות כללי
+--לקוחות רגיל
+--פוטנציאלים
+--ת אחר
+--אינדקס מרכז מידע
+--צוות טכני
+--מרכז מידע
+---טלפון
+---סוג 2
+---סוג 3
+----
+---בתי חולים פסיכיאטרים
+---פקס
+---נשים מוכות
+---בדיקה
+---טיפול הוליסטי
+--מתנדבים
+--מתעניינים
+--תורמים
+--מועמדים לסניפים
+---מועמדים ראשון לציון
+---מועמדים כפר סבא
+---מועמדים תל אביב
+---מועמדים חיפה
+---מועמדים באר שבע
+---מועמדים חדרה
+---מועמדים ירושלים
+---מועמדים סניף בערבית
+---מועמדים השרון
+---מועמדים אינטרנט
+---מועמדים כרמיאל
+---מועמדים תל חי
+---מועמדים עמק יזרעאל
+---מועמדים קרית ביאליק
+---מועמדים PALO ALTO
+---מועמדים BOSTON
+---מועמדים TORONTO
+---מועמדים ערניים באמריקה
+---מועמדים NEW JERSEY
+---מועמדים ער"ן פלוס
+-סוגי התנדבות
+כל המשתמשים/ות
+אבי גולדמן
+מתאריך  
+עד תאריך  
+הזמנה למפגש ארצי למתנדבים/ות "סיפור לחג לכולנו
+
+ לזום סיפור לחג עם כולנו  מיפגש מתנדבים ארצי לכבוד חג הפסח  לחץ כאן
+יום ראשון ה 29.03.26 בשעה 18:00
+
+  
+
+
+
+ 
+עריכה
+
+
+
+  אלון שמעוני הודעת הנהלה
+
+להמשך קריאה
+ביצוע שיחה יזומה רק באמצעות הלחצן שיחה יזומה .
+
+כאשר מבצעים שיחה יזומה, נא לבצע רק באמצעות הלחצן   ולא ישירות דרך הטלפון/ החייגן.
+רק כך ישמרו נתוני השיחה לרבות בהסטוריית הפונה ויכולת מעקב באמצעות דוחות מתאימים.
+עריכה
+
+
+
+  אלון שמעוני הודעת הנהלה
+
+להמשך קריאה
+
+ללו"ז ופירוט הדרכות ארציות 2026 לחץ כאן
+
+
+https://zoom.us/j/95320321702?pwd=bEZMWG9pWWJjL1ZXNndqNmxrOVNtdz09
+סיסמה 1201
+
+עריכה
+
+  אלון שמעוני הודעת הנהלה
+
+להמשך קריאה
+קו עבור מגיבים ראשונים
+
+מתנדבים יקרים, 
+כוחות הביטחון  נמצאים בקו הראשון של האירועים הביטחוניים. הם פועלים בזירות מורכבות הכוללות פציעות פיזיות ופגיעות בנפש, נחשפים למחזות קשים ופעמים רבות נמצאים בסכנת חיים  ישירה. לצד העומס המבצעי והרגשי, הם נדרשים להמשיך לתפקד באופן מיטבי. 
+כדי לספק מענה ישיר, נגיש ובטוח, אנו פועלים יחד עם היחידה למניעת אובדנות במשרד הבריאות, להקמת קו סיוע ייעודי ושירות ברשת עבור מגיבים ראשונים ובני משפחותיהם. 
+השירות מיועד למשטרת ישראל, שב"ס, כבאות והצלה, אחוד הצלה וזק"א.
+השירות צפוי להיפתח ב 8/3/26.
+השיחות הן שיחות ער"ן לכל דבר המיועדות למתן עזרה נפשית ראשונה ותמיכה. בטופס השיחה יופיעו מספרי טלפון שניתן למסור לפונים המעוניינים
+בסיוע ביחידותיהם.
+מצורפים קובץ מידע ולינק לזום הדרכה.
+לינק לחומרים לקראת הפתיחה.
+סיסמה:
+mkP%093*
+ הדרכות נוספות יערכו בסניפים.
+אנחנו שמחים לתת יד ולסייע למסייעים.
+ד"ר שירי דניאלס
+מנהלת מקצועית ארצית
+עריכה
+
+
+
+  אלון שמעוני הודעת הנהלה
+
+להמשך קריאה
+
+קו סיוע יעודי לעnותת דובדבן.
+השיחה היא שיחת ער"ן רגילה . קיימת אפשרות לקחת פרטים מהפונים המעוניינים בכך על מנת לקבל המשך טיפול מקצועי בעמותת דובדבן כמפורט בדף.
+
+לפתיחת דף מידע לקו הסיוע עמותת דובדבן- לחץ כאן
+
+
+
+
+ 
+עריכה
+
+  אלון שמעוני הודעת הנהלה
+
+להמשך קריאה
+ניצול לרעה של הקו
+
+אנא הקפידו שלא לנהל שיחות עם הפונים המנצלים לרעה את הקו באופן שיטתי ומתמשך לצורך סיפוק מיני/תוקפני.
+ באותן שיחות בהן פונים מפליגים באופן קבוע בפנטזיות מיניות מפורטות, בבקשות בעלות אופי מיני או בהפניית תוקפנות כלפי המתנדב לרבות עלבונות, קללות וצעקות - יש לסיים את השיחה בצורה מכבדת לאחר אמירה ברורה שאנו לא הקו המתאים עבור הבעיה המוצגת+להעביר להטרדה.
+הפונים המדוברים: הפונה שראה את חמותו במקלחת, הפונה שמבקש דמיון מודרך כדי להירדם, הפונה ששואלעל אוננות תוך סקירת תגובותיו הגופניות למראה נשים, הפונה שמספרת על התערטלות במקור מים (מקווה, ברכות צדיקים), הפונה המתאר את אברי גופו והפונה שמתלונן על עלם ומפנה לרוב זעם ואלימות מילולית כלפי המתנדבים (לעיתים תוך שהוא נותן ציונים למתנדבים מסויימים כטובים ומבינים לעומת השאר הרעים וכך מגייס אותם לשוחח עמו למרות התבטאויותיו הקשות).
+בכל שאלה או התלבטות אתם מוזמנים לפנות למנהל/ת הסניף.
+
+עריכה
+
+  ד"ר שירי דניאלס מנהלת מקצועית ארצית הודעת הנהלה
+
+להמשך קריאה
+שליחת הודעה במסך תמיכה טכנית
+
+שליחת ההודעה במסך התמיכה, הינה הודעת מייל ולכן זמן התגובה אינו מיידי
+לתגובה במיידי יש ליצור קשר טלפוני לגורם המתאים.
+
+עריכה
+
+
+
+  אלון שמעוני הודעת הנהלה
+
+להמשך קריאה
+pagination
+מספר 1438648
+נושא ביצוע שיחה יזומה רק באמצעות הלחצן שיחה יזומה .
+לכבוד אלון שמעוני
+שלח/י אבי גולדמן
+זמן 06/03/2026 14:41:48 הנחייה מקצועית
+מספר 1377594
+נושא קו סיוע -מחלקת חוסן עמותת דובדבן
+לכבוד אלון שמעוני
+שלח/י אבי גולדמן
+זמן 22/10/2025 14:59:45 הנחייה מקצועית
+נגישות
+
+=== FRAME 6 (about:blank) ===
+
+
+=== FRAME 7 (about:blank) ===
+
+
+=== FRAME 8 (about:blank) ===
+
+
+=== FRAME 9 (about:blank) ===
+
+
+=== FRAME 10 (about:blank) ===
+
+
+=== FRAME 11 (about:blank) ===
+
+
+=== FRAME 12 (about:blank) ===
+
+
+=== FRAME 13 (about:blank) ===
+
+
+=== FRAME 14 (about:blank) ===
+
+
+=== FRAME 15 (about:blank) ===
+
+
+=== FRAME 16 (about:blank) ===
+
+
+=== FRAME 17 (about:blank) ===
+
+
+=== FRAME 18 (about:blank) ===
+
+
+=== FRAME 19 (about:blank) ===
+
+
+=== FRAME 20 (about:blank) ===
+
+
+=== FRAME 21 (about:blank) ===
+
+
+=== FRAME 22 (about:blank) ===
+
+
+=== FRAME 23 (about:blank) ===
+
+
+=== FRAME 24 (about:blank) ===
+
+
+=== FRAME 25 (about:blank) ===
+
+

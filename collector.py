@@ -75,10 +75,20 @@ def run_collector(db_path: str, debug: bool = False) -> None:
 
             if debug:
                 try:
-                    raw = page.inner_text("body")
                     with open("scrape_debug.txt", "w", encoding="utf-8") as f:
-                        f.write(raw)
-                    print("[debug] Raw page text written to scrape_debug.txt")
+                        f.write(f"=== MAIN FRAME ({page.url}) ===\n")
+                        f.write(page.inner_text("body"))
+                        f.write("\n\n")
+                        for i, frame in enumerate(page.frames):
+                            if frame == page.main_frame:
+                                continue
+                            try:
+                                f.write(f"=== FRAME {i} ({frame.url}) ===\n")
+                                f.write(frame.inner_text("body"))
+                                f.write("\n\n")
+                            except Exception:
+                                f.write(f"[could not read frame {i}]\n\n")
+                    print("[debug] Page + all frames written to scrape_debug.txt")
                 except Exception as exc:
                     log.warning("Could not write debug file: %s", exc)
 
