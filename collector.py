@@ -12,10 +12,16 @@ from pathlib import Path
 
 from playwright.sync_api import sync_playwright, TimeoutError as PWTimeout
 
-from monitor.config import PORTAL_URL, SESSION_FILE, POLL_INTERVAL_SECONDS
-from monitor.auth import is_session_valid
-from monitor.scraper import scrape_stats
-from monitor.storage import get_conn, insert_sample
+try:
+    from monitor.config import PORTAL_URL, SESSION_FILE, POLL_INTERVAL_SECONDS
+    from monitor.auth import is_session_valid
+    from monitor.scraper import scrape_stats
+    from monitor.storage import get_conn, insert_sample
+except ModuleNotFoundError:
+    from config import PORTAL_URL, SESSION_FILE, POLL_INTERVAL_SECONDS
+    from auth import is_session_valid
+    from scraper import scrape_stats
+    from storage import get_conn, insert_sample
 
 log = logging.getLogger(__name__)
 
@@ -24,23 +30,23 @@ _running = True
 
 def _handle_sigint(sig, frame):
     global _running
-    print("\n[!] עצירה על-פי בקשה… מסיים בצורה מסודרת.")
+    print("\n[!] Stop requested — shutting down cleanly.")
     _running = False
 
 
-def run_collector(db_path: str) -> None:
+def run_collector(db_path: str, debug: bool = False) -> None:
     if not Path(SESSION_FILE).exists():
         print(
-            f"[שגיאה] לא נמצא קובץ סשן ({SESSION_FILE}).\n"
-            "הרץ קודם:  python -m monitor.main login"
+            f"[Error] Session file not found ({SESSION_FILE}).\n"
+            "Run first:  python3 main.py login"
         )
         sys.exit(1)
 
     signal.signal(signal.SIGINT, _handle_sigint)
     conn = get_conn(db_path)
 
-    print(f"[✓] מתחיל ניטור – מדגם כל {POLL_INTERVAL_SECONDS} שניות ({POLL_INTERVAL_SECONDS//60} דקות).")
-    print("    לחץ Ctrl+C לעצירה.\n")
+    print(f"[✓] Starting monitor — sampling every {POLL_INTERVAL_SECONDS}s ({POLL_INTERVAL_SECONDS // 60} min).")
+    print("    Press Ctrl+C to stop.\n")
 
     with sync_playwright() as pw:
         browser = pw.chromium.launch(headless=True)
@@ -64,21 +70,30 @@ def run_collector(db_path: str) -> None:
 
             # Check we weren't redirected to login
             if not is_session_valid(page):
-                print("[!] הסשן פג תוקף. הרץ 'login' מחדש ואז הפעל שוב את collect.")
+                print("[!] Session expired. Run 'login' again then restart collect.")
                 break
+
+            if debug:
+                try:
+                    raw = page.inner_text("body")
+                    with open("scrape_debug.txt", "w", encoding="utf-8") as f:
+                        f.write(raw)
+                    print("[debug] Raw page text written to scrape_debug.txt")
+                except Exception as exc:
+                    log.warning("Could not write debug file: %s", exc)
 
             data = scrape_stats(page)
             if data:
                 insert_sample(conn, data)
                 _print_sample(data)
             else:
-                log.warning("לא הצלחתי לחלץ נתונים מהדף.")
+                log.warning("Failed to extract stats from page.")
 
             _sleep_interruptible(POLL_INTERVAL_SECONDS)
 
         browser.close()
 
-    print("[✓] הניטור הסתיים.")
+    print("[✓] Monitor stopped.")
 
 
 def _load_portal(page) -> None:
@@ -101,8 +116,8 @@ def _print_sample(data: dict) -> None:
     connected = _fmt(data.get("connected"))
     on_break  = _fmt(data.get("on_break"))
     print(
-        f"[{ts}]  שיחות: {calls}  |  ממתינים: {waiting}  |  "
-        f"מחוברים: {connected}  |  בהפסקה: {on_break}"
+        f"[{ts}]  Calls: {calls}  |  Waiting: {waiting}  |  "
+        f"Connected: {connected}  |  On break: {on_break}"
     )
 
 
