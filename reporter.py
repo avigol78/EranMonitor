@@ -29,7 +29,7 @@ def _gap(row: dict) -> float | None:
     return supply - demand
 
 
-def generate_report(rows: list, output_chart: str = "eran_report.png") -> None:
+def generate_report(rows: list, output_chart: str | None = "eran_report.png") -> None:
     if not rows:
         print("No data to report.")
         return
@@ -90,6 +90,8 @@ def generate_report(rows: list, output_chart: str = "eran_report.png") -> None:
 
     print("=" * 64 + "\n")
 
+    if output_chart is None:
+        return
     _try_plot(rows, by_hour, output_chart)
 
 

@@ -11,7 +11,7 @@ LOGIN_URL = "https://portal.eran.org.il/Account/Login"
 EMAIL = os.environ.get("ERAN_EMAIL", "")
 PASSWORD = os.environ.get("ERAN_PASSWORD", "")
 
-# How often to sample the stats (seconds). 5 min = 300.
+# How often to sample the stats (seconds). 2 min = 120.
 POLL_INTERVAL_SECONDS = int(os.environ.get("ERAN_POLL_INTERVAL", "120"))
 
 # Where to store data

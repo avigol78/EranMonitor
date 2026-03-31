@@ -2,7 +2,7 @@
 Extract call-centre statistics from the top of the ERAN portal page.
 
 The header row looks roughly like:
-  שלוחה: none | בשיחה: 1 | בהמתנה: 2 | בהפסקה: 0 | מחוברים/ות: 6 | פונים/ות: 2 | שיחות: 1
+  שלוחה: none | בשיחה: 4 | בהמתנה: 2 | בהפסקה: 0 | מחוברים/ות: 6 | פנויים/ות: 0
 
 We scrape the four values the user cares about:
   calls      – בשיחה (active calls)
@@ -51,7 +51,7 @@ def scrape_stats(page) -> dict:
             el = page.query_selector(selector)
             if el:
                 t = el.inner_text()
-                if any(kw in t for kw in ["שיחות", "מחובר", "בהפסקה", "ממתינ"]):
+                if any(kw in t for kw in ["בשיחה", "מחובר", "בהפסקה", "ממתינ"]):
                     raw_text = t
                     log.debug("Found stats via selector '%s'", selector)
                     break

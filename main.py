@@ -81,10 +81,8 @@ def cmd_export(args) -> None:
 def cmd_watch(args) -> None:
     try:
         from monitor.reporter import generate_report
-        from monitor.storage import get_conn, fetch_recent_days
     except ModuleNotFoundError:
         from reporter import generate_report
-        from storage import get_conn, fetch_recent_days
 
     running = True
 
@@ -99,7 +97,7 @@ def cmd_watch(args) -> None:
         os.system("clear")
         rows = fetch_recent_days(conn, days=1)
         if rows:
-            generate_report(rows)
+            generate_report(rows, output_chart=None)
         else:
             print("No data collected yet. Is 'collect' running?")
 
