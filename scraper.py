@@ -5,7 +5,7 @@ The header row looks roughly like:
   שלוחה: none | בשיחה: 1 | בהמתנה: 2 | בהפסקה: 0 | מחוברים/ות: 6 | פונים/ות: 2 | שיחות: 1
 
 We scrape the four values the user cares about:
-  calls      – שיחות (active calls)
+  calls      – בשיחה (active calls)
   waiting    – פונים ממתינים / בהמתנה (waiting callers)
   connected  – מחוברים (connected volunteers)
   on_break   – בהפסקה (volunteers on break)
