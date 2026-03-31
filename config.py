@@ -12,7 +12,7 @@ EMAIL = os.environ.get("ERAN_EMAIL", "")
 PASSWORD = os.environ.get("ERAN_PASSWORD", "")
 
 # How often to sample the stats (seconds). 5 min = 300.
-POLL_INTERVAL_SECONDS = int(os.environ.get("ERAN_POLL_INTERVAL", "300"))
+POLL_INTERVAL_SECONDS = int(os.environ.get("ERAN_POLL_INTERVAL", "120"))
 
 # Where to store data
 DB_PATH = os.environ.get("ERAN_DB_PATH", "eran_monitor.db")
